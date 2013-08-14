@@ -61,8 +61,9 @@ print isequal(num2, num3)
 print "Here is a new puzzle."
 
 # write a simple formula and use the function again
-pi = 3.14
-radius = 20
-what_again = multiply(2, multiply(pi, radius))
+uplen = 50
+downlen = 100
+height = 80
+what_again = divide(multiply(height, add(uplen, downlen)), 2)
 
 print "That become: ", what_again, "Bazinga!"
