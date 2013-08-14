@@ -10,6 +10,7 @@ months = "Jan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug"
 
 print "Here are the days: ", days
 print "Here are the months: ", months
+print"I said 'Here are the months: %r'" % months
 
 print """
 There's something going on here.
