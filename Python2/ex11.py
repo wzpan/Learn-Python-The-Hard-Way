@@ -3,6 +3,9 @@
 
 # ex11: Asking Questions
 
+# input(): Read a value from standard input. Equivalent to eval(raw_input(prompt)).
+# raw_input(): Read a string from standard input. The trailing newline is stripped.
+
 print "How old are you?",
 age = raw_input()
 print "How tall are you?",
