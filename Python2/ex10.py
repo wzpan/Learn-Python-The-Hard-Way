@@ -21,7 +21,7 @@ print backslash_cat
 print fat_cat
 
 # Assign string value for each variable
-intro = "I'll print a week:\n"
+intro = "I'll print a week"
 mon = "Mon"
 tue = "Tue"
 wed = "Wed"
@@ -30,4 +30,10 @@ fri = "Fri"
 sat = "Sat"
 sun = "Sun"
 
-print "%s%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (intro, mon, tue, wed, thu, fri, sat, sun)
+print "%s\n%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (intro, mon, tue, wed, thu, fri, sat, sun)
+
+print "%r" % intro
+print "%r" % "She said \"I'll print a week\""
+
+print "%s" % intro
+print "%s" % "She said \"I'll print a week\""
