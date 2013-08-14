@@ -21,3 +21,11 @@ print "His teeth are usually %s depending on the coffee." % (teeth)
 
 # this line is tricky, try to get it exactly right
 print 'If I add %d, %d and %d I get %d.' % (age, height, weight, age + height + weight)
+
+# try more format characters
+my_greeting = "Hello,\t"
+my_first_name = 'Joseph'
+my_last_name = 'Pan'
+my_age = 24
+# Print 'Hello,\t'my name is Joseph Pan, and I'm 24 years old.
+print "%rmy name is %s %s, and I'm %d years old." % (my_greeting, my_first_name, my_last_name, my_age)
