@@ -6,7 +6,9 @@
 from sys import argv
 
 script, user_name = argv
-prompt = '> '
+# Change the prompt variable to something else
+# prompt = '> '
+prompt = 'Please type the answer: '
 
 print "Hi %s, I'm the %s script." % (user_name, script)
 print "I'd like to ask you a few questions."
