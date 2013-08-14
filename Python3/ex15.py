@@ -2,13 +2,12 @@
 
 # ex15: Reading Files
 
-# import argv variables from sys submodule
-from sys import argv
+# prompt to type the file name
+print("Type the filename:")
+# input the file name
+filename = input("> ")
 
-# get the argv variables
-script, filename = argv
-
-# open a file
+# open the selected file
 txt = open(filename)
 
 # print file name
