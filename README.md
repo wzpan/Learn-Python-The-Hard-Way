@@ -4,7 +4,7 @@ My answer for all the excersice from Zed. A. Shaw [Learn Python the Hard Way](ht
 
 The code will be written in both Python2(2.7.5) and Python3(3.3.2).
 
-The best way to found my solution step by step is to use `git log` command. For instance,
+The best way to check my solution step by step is to use `git log` command. For instance,
 
 ``` sh
 $ git log -p Python2/ex04.py
