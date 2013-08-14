@@ -14,3 +14,7 @@ print "How much do you weigh?",
 weight = raw_input()
 
 print "So, you're %r old, %r tall and %r heavy." % (age, height, weight)
+
+print "Enter a integer: ",
+num = int(raw_input())
+print "The number you've input is: %d" % num
