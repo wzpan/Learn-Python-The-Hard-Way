@@ -16,14 +16,3 @@ txt = open(filename)
 print "Here's your file %r:" % filename
 # print all the contents of the file
 print txt.read()
-
-# prompt to type the file name again
-print "Type the filename again:"
-# input the new file name
-file_again = raw_input("> ")
-
-# open the new selected file
-txt_again = open(file_again)
-
-# print the contents of the new selected file
-print txt_again.read()
