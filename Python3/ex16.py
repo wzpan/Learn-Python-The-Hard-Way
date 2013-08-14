@@ -20,6 +20,8 @@ print("Opening the file...")
 # Open this file in 'write' mode
 target = open(filename, 'w')
 
+# Not neccessary if opening the file with 'w' mode
+# target.truncate()
 print("Truncating the file.  Goodbye!")
 target.truncate()
 
