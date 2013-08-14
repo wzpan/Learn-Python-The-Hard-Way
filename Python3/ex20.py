@@ -58,11 +58,11 @@ current_line = 1
 print_a_line(current_line, current_file)
 
 # Set current line to 2 by adding 1
-current_line = current_line + 1
+current_line += 1
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)
 
 # Set current line to 3 by adding 1
-current_line = current_line + 1
+current_line += 1
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)

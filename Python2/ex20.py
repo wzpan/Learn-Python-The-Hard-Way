@@ -59,13 +59,13 @@ print "current_line = %d" % current_line
 print_a_line(current_line, current_file)
 
 # Set current line to 2 by adding 1
-current_line = current_line + 1
+current_line += 1
 print "current_line is equal to:%d" % current_line
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)
 
 # Set current line to 3 by adding 1
-current_line = current_line + 1
+current_line += 1
 print "current_line is equal to:%d" % current_line
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)
