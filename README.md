@@ -7,7 +7,7 @@ The code will be written in both Python2(2.7.5) and Python3(3.3.2).
 The best way to found my solution step by step is to use `git log` command. For instance,
 
 ``` sh
-$ git log -p Python2/ex4.py
+$ git log -p Python2/ex04.py
 ```
 
 Alternatively you can browse the history of any file on Github to see the change of it.
