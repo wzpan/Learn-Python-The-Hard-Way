@@ -27,3 +27,10 @@ my_last_name = 'Pan'
 my_age = 24
 # Print 'Hello,\t'my name is Joseph Pan, and I'm 24 years old.
 print("%rmy name is %s %s, and I'm %d years old." % (my_greeting, my_first_name, my_last_name, my_age))
+
+# Try to write some variables that convert the inches and pounds to centimeters and kilos.
+inches_per_centimeters = 2.54
+pounds_per_kilo = 0.45359237
+
+print("He's %f centimeters tall." % (height * inches_per_centimeters))
+print("He's %f kilos heavy." % (weight * pounds_per_kilo))
