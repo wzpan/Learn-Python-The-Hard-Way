@@ -9,7 +9,6 @@ from sys import argv
 # Assign the first and the second arguments to the two variables
 script, input_file = argv
 
-
 # Define a function called print_call to print the whole contents of a
 # file, with one file object as formal parameter
 def print_all(f):
@@ -27,6 +26,8 @@ def rewind(f):
 # Define a function called print_a_line to print a line of the file,
 # with a integer counter and a file object as formal parameters
 def print_a_line(line_count, f):
+    # Test whether two variables are carrying the same value
+    print "line_count equal to current_line?:", (line_count == current_line)
     # print the number and the contents of a line
     print line_count, f.readline()
 
@@ -53,15 +54,18 @@ print "Let's print three lines:"
 
 # Set current line to 1
 current_line = 1
+print "current_line = %d" % current_line
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)
 
 # Set current line to 2 by adding 1
 current_line = current_line + 1
+print "current_line is equal to:%d" % current_line
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)
 
 # Set current line to 3 by adding 1
 current_line = current_line + 1
+print "current_line is equal to:%d" % current_line
 # Print current line by calling print_a_line function
 print_a_line(current_line, current_file)

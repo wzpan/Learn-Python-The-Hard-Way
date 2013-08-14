@@ -26,6 +26,8 @@ def rewind(f):
 # Define a function called print_a_line to print a line of the file,
 # with a integer counter and a file object as formal parameters
 def print_a_line(line_count, f):
+    # Test whether two variables are carrying the same value
+    print("line_count equal to current_line?:", (line_count == current_line))
     # print the number and the contents of a line
     print(line_count, f.readline())
 
