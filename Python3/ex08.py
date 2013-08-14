@@ -11,6 +11,6 @@ print(formatter % (formatter, formatter, formatter, formatter))
 print(formatter % (
     "I had this thing.",
     "That you could type up right.",
-    "But it didn't sing.",
+    "But it didn't sing.",  # This line contains a apostrophe
     "So I said goodnight."
     ))
