@@ -18,3 +18,15 @@ print(tabby_cat)
 print(persian_cat)
 print(backslash_cat)
 print(fat_cat)
+
+# Assign string value for each variable
+intro = "I'll print a week:\n"
+mon = "Mon"
+tue = "Tue"
+wed = "Wed"
+thu = "Thu"
+fri = "Fri"
+sat = "Sat"
+sun = "Sun"
+
+print("%s%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (intro, mon, tue, wed, thu, fri, sat, sun))
