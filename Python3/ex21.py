@@ -54,3 +54,14 @@ num3 = 50
 
 print(isequal(num1, num2))
 print(isequal(num2, num3))
+
+
+# A new puzzle.
+print("Here is a new puzzle.")
+
+# write a simple formula and use the function again
+pi = 3.14
+radius = 20
+what_again = multiply(2, multiply(pi, radius))
+
+print("That become: ", what_again, "Bazinga!")
