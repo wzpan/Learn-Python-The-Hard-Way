@@ -17,6 +17,7 @@ print("If you do want that, hit RETURN.")
 input("?")
 
 print("Opening the file...")
+# Open this file in 'write' mode
 target = open(filename, 'w')
 
 print("Truncating the file.  Goodbye!")

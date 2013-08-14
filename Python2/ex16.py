@@ -18,6 +18,7 @@ print "If you do want that, hit RETURN."
 raw_input("?")
 
 print "Opening the file..."
+# Open this file in 'write' mode
 target = open(filename, 'w')
 
 print "Truncating the file.  Goodbye!"
@@ -40,3 +41,4 @@ target.write("\n")
 
 print "And finally, we close it."
 target.close()
+
