@@ -41,7 +41,8 @@ print("Age: %d, Height: %d, Weight: %d, IQ: %d" % (age, height, weight, iq))
 # A puzzle for the extra credit, type it in anyway.
 print("Here is a puzzle.")
 
-what = add(age, subtract(height, multiply(weight, divide(iq, 2))))
+# switch the order of multiply and divide
+what = add(age, subtract(height, divide(weight, multiply(iq, 2))))
 
 print("That becomes: ", what, "Can you do it by hand?")
 
