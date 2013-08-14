@@ -37,14 +37,13 @@ print("And we can combine the two, variables and math:")
 # and math as the actual parameters
 cheese_and_crackers(amount_of_cheese + 100, amount_of_cheese + 1000)
 
-
 def print_args(*argv):
     size = len(argv)
-    print(size)
-    print("Hello! Welcome to use %r!" % argv[0])
+    print size
+    print "Hello! Welcome to use %r!" % argv[0]
     if size > 1:
         for i in range(1, size):
-            print("The param %d is %r" % (i, argv[i]))
+            print "The param %d is %r" % (i, argv[i])
         return 0
     return -1
 
@@ -84,6 +83,6 @@ dict1 = {'id': '0001', 'name': first_name+" "+last_name}
 str1 = "Wow, so complicated!"
 print_args("print args", nums1, nums2, nums3, set1, dict1, str1)
 
-# 10. function as parameter and with return values
+# 10. function as parameter and return values
 if print_args(cheese_and_crackers, print_args) != -1:
-    print("You just send more than one parameter. Great!")
+    print "You just send more than one parameter. Great!"
