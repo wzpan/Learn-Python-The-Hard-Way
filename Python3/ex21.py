@@ -24,7 +24,7 @@ def divide(a, b):
 
 # my function to test return
 def isequal(a, b):
-    print("Is %r equal to %r? - " % (a, b))
+    print("Is %r equal to %r? - " % (a, b), end="")
     return (a == b)
 
 
