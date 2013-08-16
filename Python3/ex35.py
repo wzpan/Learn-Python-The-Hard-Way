@@ -10,11 +10,9 @@ def gold_room():
 
     next = input("> ")
 
-    # only accepts string that contains number 0 or 1
-    if "0" in next or "1" in next:
+    try:
         how_much = int(next)
-    else:
-        # convert the string to integer
+    except ValueError:
         dead("Man, learn to type a number.")
 
     if how_much < 50:
