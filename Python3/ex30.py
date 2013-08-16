@@ -24,3 +24,12 @@ if people > buses:
     print("Alright, let's just take the buses.")
 else:
     print("Fine, let's stay home then.")
+
+if people > cars and people < buses:
+    print("There are many Busses but few cars.")
+elif people < cars and people > buses:
+    print("There are many cars but few busses.")
+elif people > cars and people > buses:
+    print("There are few busses and cars.")
+else:
+    print("There are many busses and cars.")
