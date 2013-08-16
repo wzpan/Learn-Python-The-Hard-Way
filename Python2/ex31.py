@@ -3,7 +3,10 @@
 
 # ex31: Making Decisions
 
-print "You enter a dark room with two doors. Do you go through door #1 or door #2?"
+print "You enter a dark room with two doors. Do you go through...?"
+print "door #1"
+print "door #2"
+print "door #3"
 
 door = raw_input("> ")
 
@@ -34,5 +37,21 @@ elif door == "2":
     else:
         print "The insanity rots you "
 
+elif door == "3":
+    print "You are asked to select one pill from two and take it. One is red, and the other is blue."
+    print "1. take the red one."
+    print "2. take the blue one."
+
+    pill = raw_input("> ")
+
+    if pill == "1":
+        print "You wake up and found this is just a ridiculous dream. Good job!"
+    elif pill == "2":
+        print "It's poisonous and you died."
+    else:
+        print "The man got mad and killed you."
+
+
 else:
-    print "You stumble around and fell on a knife and die. Good job!"
+    print "You wake up and found this is just a ridiculous dream."
+    print "However you feel a great pity haven't entered any room and found out what it will happens!"

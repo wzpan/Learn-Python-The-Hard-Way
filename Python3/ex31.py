@@ -33,5 +33,21 @@ elif door == "2":
     else:
         print("The insanity rots you ")
 
+elif door == "3":
+    print("You are asked to select one pill from two and take it. One is red, and the other is blue.")
+    print("1. take the red one.")
+    print("2. take the blue one.")
+
+    pill = input("> ")
+
+    if pill == "1":
+        print("You wake up and found this is just a ridiculous dream. Good job!")
+    elif pill == "2":
+        print("It's poisonous and you died.")
+    else:
+        print("The man got mad and killed you.")
+
+
 else:
-    print("You stumble around and fell on a knife and die. Good job!")
+    print("You wake up and found this is just a ridiculous dream.")
+    print("However you feel a great pity haven't entered any room and found out what it will happens!")
