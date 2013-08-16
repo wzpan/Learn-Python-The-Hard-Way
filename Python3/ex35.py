@@ -5,12 +5,16 @@
 from sys import exit
 
 def gold_room():
+    ''' A room with full of god. '''    
     print("This room is full of gold.  How much do you take?")
 
     next = input("> ")
+
+    # only accepts string that contains number 0 or 1
     if "0" in next or "1" in next:
         how_much = int(next)
     else:
+        # convert the string to integer
         dead("Man, learn to type a number.")
 
     if how_much < 50:
@@ -21,6 +25,7 @@ def gold_room():
 
 
 def bear_room():
+    ''' A room with a bear '''    
     print("There is a bear here.")
     print("The bear has a bunch of honey.")
     print("The fat bear is in front of another door.")
@@ -44,6 +49,7 @@ def bear_room():
 
 
 def cthulhu_room():
+    ''' A room with evil Cthulhu '''
     print("Here you see the great evil Cthulhu.")
     print("He, it, whatever stares at you and you go insane.")
     print("Do you flee for your life or eat your head?")
@@ -59,10 +65,12 @@ def cthulhu_room():
 
 
 def dead(why):
+    ''' Call this when the hero dead '''
     print(why, "Good job!")
     exit(0)
 
 def start():
+    ''' Begining of the story '''
     print("You are in a dark room.")
     print("There is a door to your right and left.")
     print("Which one do you take?")
