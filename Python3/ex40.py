@@ -17,6 +17,12 @@ bulls_on_parade = Song(["They rally around the family",
                         "With pockets full of shells"
                         ])
 
+someone_like_you = Song(["Never mind I find",
+                         "Some one like you"
+                         ])
+
 happy_bday.sing_me_a_song()
 
 bulls_on_parade.sing_me_a_song()
+
+someone_like_you.sing_me_a_song()
