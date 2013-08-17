@@ -59,3 +59,38 @@ if not state:
 # get a city with a default value
 city = cities.get('TX', 'Does Not Exist')
 print "The city for the state 'TX' is %s" % city
+
+# create a mapping of province to abbreviation
+cn_province = {
+    '广东': '粤',
+    '湖南': '湘',
+    '四川': '川',
+    '云南': '滇',
+    }
+
+# create a basic set of provinces and some cities in them
+cn_cities = {
+    '粤': '广州',
+    '湘': '长沙',
+    '川': '成都',
+    }
+
+# add some more data
+cn_province['台湾'] = '台'
+
+cn_cities['滇'] = '昆明'
+cn_cities['台'] = '高雄'
+
+print '-' * 10
+for prov, abbr in cn_province.items():
+    print "%s省的缩写是%s" % (prov, abbr)
+
+print '-' * 10
+cn_abbrevs = {values: keys for keys, values in cn_province.items()}
+for abbrev, prov in cn_abbrevs.items():
+    print "%s是%s省的缩写" % (abbrev, prov)
+
+print '-' * 10
+for abbrev, city in cn_cities.items():
+    print "%s市位于我国的%s省" % (city, cn_abbrevs[abbrev])
+
