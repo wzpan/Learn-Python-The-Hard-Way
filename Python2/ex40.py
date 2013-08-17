@@ -14,17 +14,21 @@ class Song(object):
         for line in self.lyrics:
             print line
 
-happy_bday = Song(["Happy birthday to you",
-                   "I don't want to get sued",
-                   "So I'll stop right there"])
+song1 =  ["Happy birthday to you",
+"I don't want to get sued",
+"So I'll stop right there"]           
 
-bulls_on_parade = Song(["They rally around the family",
-                        "With pockets full of shells"
-                        ])
+song2 = ["They rally around the family",
+"With pockets full of shells"
+]
 
-someone_like_you = Song(["Never mind I find",
-                         "Some one like you"
-                         ])
+song3 = ["Never mind I find",
+"Some one like you"
+]
+                
+happy_bday = Song(song1)
+bulls_on_parade = Song(song2)
+someone_like_you = Song(song3)
 
 happy_bday.sing_me_a_song()
 
