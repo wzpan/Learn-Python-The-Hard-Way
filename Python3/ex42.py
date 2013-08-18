@@ -35,7 +35,8 @@ class Employee(Person):
 
     def __init__(self, name, salary):
         ## run the __init__ method of a parent class reliably
-        super(Employee, self).__init__(name)
+        self.__init__(name)
+        super().__init__(name)
         ## Employee has-a salary
         self.salary = salary
 
