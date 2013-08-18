@@ -15,26 +15,36 @@
 #   * Laser Weapon Armory
 #   * The Bridge
 #   * Escape Pod
+# * Human
+#   - attack
+#   - defend
+#   * Hero
+#   * Monster
 
 from sys import exit
 from random import randint
+import time
+import math
 
 class Engine(object):
-    
-    def __init__(self, scene_map):
+
+    def __init__(self, scene_map, hero):
         self.scene_map = scene_map
+        self.hero = hero
 
     def play(self):
         current_scene = self.scene_map.opening_scene()
 
         while True:
             print("\n--------")
-            next_scene_name = current_scene.enter()
+            next_scene_name = current_scene.enter(self.hero)
             current_scene = self.scene_map.next_scene(next_scene_name)
 
 
+
+
 class Scene(object):
-    
+
     def enter(self):
         print("This scene is not yet configured. Subclass it and implement enter().")
         exit(1)
@@ -48,13 +58,13 @@ class Death(Scene):
          "I have a small puppy that's better at this."
     ]
 
-    def enter(self):
+    def enter(self, hero):
         print(Death.quips[randint(0, len(self.quips)-1)])
         exit(1)
-    
+
 class CentralCorridor(Scene):
 
-    def enter(self):
+    def enter(self, hero):
         print("The Gothons of Planet Percal #25 have invaded your ship and destroyed")
         print("your entire crew.  You are the last surviving member and your last")
         print("mission is to get the neutron destruct bomb from the Weapons Armory,")
@@ -97,11 +107,11 @@ class CentralCorridor(Scene):
 
         else:
             print("DOES NOT COMPUTE!")
-            return 'central_corridor'    
+            return 'central_corridor'
 
 class LaserWeaponArmory(Scene):
 
-    def enter(self):
+    def enter(self, hero):
         print("You do a dive roll into the Weapon Armory, crouch and scan the room")
         print("for more Gothons that might be hiding.  It's dead quiet, too quiet.")
         print("You stand up and run to the far side of the room and find the")
@@ -112,7 +122,7 @@ class LaserWeaponArmory(Scene):
         code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
 
         print(code)
-        
+
         guesses = 0
 
         while guesses < 10:
@@ -138,7 +148,7 @@ class LaserWeaponArmory(Scene):
 
 class TheBridge(Scene):
 
-    def enter(self):
+    def enter(self, hero):
         print("You burst onto the Bridge with the netron destruct bomb")
         print("under your arm and surprise 5 Gothons who are trying to")
         print("take control of the ship.  Each of them has an even uglier")
@@ -174,7 +184,7 @@ class TheBridge(Scene):
 
 class EscapePod(Scene):
 
-    def enter(self):
+    def enter(self, hero):
         print("You rush through the ship desperately trying to make it to")
         print("the escape pod before the whole ship explodes.  It seems like")
         print("hardly any Gothons are on the ship, so your run is clear of")
@@ -184,6 +194,7 @@ class EscapePod(Scene):
         print("do you take?")
 
         good_pod = randint(1,5)
+        print(good_pod)
         guess = input("[pod #]> ")
 
 
@@ -201,9 +212,90 @@ class EscapePod(Scene):
             print("bright star, taking out the Gothon ship at the same")
             print("time.  You won!")
 
+            return 'final_fight'
 
-            return 'finished'        
-        
+class Win(Scene):
+    ''' Win '''
+
+    def enter(self, hero):
+
+        print('''
+        You Win! Good Job!
+        ''')
+
+        exit(0)
+
+class Final(Scene):
+
+    ''' final fight '''
+
+    def enter(self, hero):
+
+        # initialize a monster
+        monster = Monster("Gothon")
+
+        print("%s, You now came across the final boss %s! Let's fight!!!" % (hero.name, monster.name))
+
+
+        a_combat = Combat()
+
+        next_stage = a_combat.combat(hero, monster)
+        return next_stage
+
+class Combat(object):
+
+    def combat(self, hero, monster):
+
+        ''' combat between two roles '''
+
+        round = 1
+        while True:
+            print('='*30)
+            print('round %d' % round)
+            print('='*30)
+            print("Your HP: %d" % hero.hp)
+            print("%s's HP: %d" % (monster.name, monster.hp))
+            print('Which action do you want to take?')
+            print('-'*10)
+            print('1) attack - Attack the enemy')
+            print('2) defend - Defend from being attacked, also will recover a bit')
+
+            try:
+                action = int(input('> '))
+            except ValueError:
+                print("Please enter a number!!")
+                continue
+
+            # defending should be done before attacking
+            if action == 2:
+                hero.defend()
+
+            # action of monster, 1/5 possibility it will defends
+            monster_action = randint(1, 6)
+            if monster_action == 5:
+                monster.defend()
+
+            if action == 1:
+                hero.attack(monster)
+            elif action == 2:
+                pass
+            else:
+                print("No such action!")
+
+            if monster_action < 5:
+                monster.attack(hero)
+
+            # whether win or die
+            if hero.hp <= 0:
+                return 'death'
+
+            if monster.hp <= 0:
+                return 'win'
+
+            hero.rest()
+            monster.rest()
+
+            round += 1
 
 class Map(object):
 
@@ -212,7 +304,9 @@ class Map(object):
         'laser_weapon_armory': LaserWeaponArmory(),
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
-        'death': Death()
+        'death': Death(),
+        'final_fight': Final(),
+        'win': Win()
     }
 
     def __init__(self, start_scene):
@@ -224,9 +318,56 @@ class Map(object):
     def opening_scene(self):
         return self.next_scene(self.start_scene)
 
+class Human(object):
+
+    ''' class for human '''
+    defending = 0
+
+    def __init__(self, name):
+        self.name = name
+
+    def attack(self, target):
+        ''' attack the target '''
+        percent = 0
+        time.sleep(1)
+        if target.defending == 1:
+            percent = float(self.power) / 10.0 + randint(0, 10)
+            target.hp = math.floor(target.hp - percent)
+        else:
+            percent = float(self.power) / 5.0 + randint(0, 10)
+            target.hp = math.floor(target.hp - percent)
+        print("%s attack %s. %s's HP decreased by %d points." % (self.name, target.name, target.name, percent))
+
+    def defend(self):
+        ''' be in the defending state. '''
+        self.defending = 1
+        print("%s is trying to defend." % self.name)
+
+    def rest(self):
+        ''' recover a bit after each round '''
+        if self.defending == 1:
+            percent = self.rate * 10 + randint(0, 10)
+        else:
+            percent = self.rate * 2 + randint(0, 10)
+        self.hp += percent
+        print("%s's HP increased by %d after rest." % (self.name, percent))
+        self.defending = 0
 
 
+class Hero(Human):
+    ''' class for hero '''
+
+    hp = 1000
+    power = 200
+    rate = 5
+
+class Monster(Human):
+    ''' class for monster '''
+    hp = 5000
+    power = 250
+    rate = 5
 
 a_map = Map('central_corridor')
-a_game = Engine(a_map)
+a_hero = Hero('Joe')
+a_game = Engine(a_map, a_hero)
 a_game.play()
