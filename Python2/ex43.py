@@ -98,7 +98,7 @@ class CentralCorridor(Scene):
 
         else:
             print "DOES NOT COMPUTE!"
-            return 'central_corridor'    
+            return 'central_corridor'
 
 class LaserWeaponArmory(Scene):
 
@@ -111,6 +111,8 @@ class LaserWeaponArmory(Scene):
         print "wrong 10 times then the lock closes forever and you can't"
         print "get the bomb.  The code is 3 digits."
         code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
+
+        print code
 
         guesses = 0
 
@@ -200,9 +202,7 @@ class EscapePod(Scene):
             print "bright star, taking out the Gothon ship at the same"
             print "time.  You won!"
 
-
             return 'finished'        
-        
 
 class Map(object):
 

@@ -111,6 +111,8 @@ class LaserWeaponArmory(Scene):
         print("get the bomb.  The code is 3 digits.")
         code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
 
+        print(code)
+        
         guesses = 0
 
         while guesses < 10:
