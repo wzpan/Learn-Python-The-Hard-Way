@@ -1,12 +1,14 @@
 from nose.tools import *
 from bin.app import app
 from tests.tools import assert_response
+import os
 
-def test_index():
+def test_Index():
     # check that we get a 404 on the / URL
     resp = app.request("/")
-    assert_response(resp, status="404")
+    assert_response(resp)
 
+def test_SayHello():
     # test our first GET request to /hello
     resp = app.request("/hello")
     assert_response(resp)
@@ -19,3 +21,7 @@ def test_index():
     data = {'name': 'Zed', 'greet': 'Hola'}
     resp = app.request("/hello", method="POST", data=data)
     assert_response(resp, contains="Zed")
+
+class MyFile:
+    def __init__(self, filename, ):
+        self.filename = filename

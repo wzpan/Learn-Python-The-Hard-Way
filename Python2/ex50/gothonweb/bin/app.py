@@ -21,7 +21,11 @@ class SayHello:
     def GET(self):
         return render.hello_form()
     def POST(self):
-        form = web.input(name="Nobody", greet="Hello")
+        form = web.input()
+        if form.name == '':
+            form.name = "Nobody"
+        if form.greet == '':
+            form.greet = "Hello"
         greeting = "%s, %s" % (form.greet, form.name)
         return render.hello(greeting = greeting)
 
@@ -41,8 +45,9 @@ class Upload:
             os.mkdir(folder)
         # get the file name
         filename = os.path.join(folder, form['myfile'].filename)
+        print(type(form['myfile']))
         with open(filename, 'wb') as f:
-            f.write(form['myfile'].file.read())
+            f.write(form['myfile'].filevalue)
             f.close()
         return render.show(filename = filename)
         
