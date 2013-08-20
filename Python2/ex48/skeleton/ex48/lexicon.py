@@ -21,19 +21,11 @@ def analyse(word):
         }
     
     ''' analyse a word '''
-
-    if isnum(word) is not None:
+    if word.isdigit():
+        # if it's a number
         return 'number'
-
     for rule, rule_list in rules.items():
         if word in rule_list:
+            # if it match any rule above
             return rule
-
     return 'error'
-
-def isnum(word):
-    ''' return a int number if is a number, other wise return None '''
-    try:
-        return int(word)
-    except ValueError as er:
-        return None

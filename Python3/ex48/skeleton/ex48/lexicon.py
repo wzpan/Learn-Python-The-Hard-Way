@@ -10,7 +10,6 @@ def scan(line):
         result.append((type, word))
     return result
 
-
 def analyse(word):
     ''' Input a word, return its type according to the rule.  '''
     rules = {
@@ -19,21 +18,12 @@ def analyse(word):
         "stop": ['the', 'in', 'of', 'from', 'at', 'it'],
         "noun": ['door', 'bear', 'princess', 'carbinet']
         }
-    
     ''' analyse a word '''
-
-    if isnum(word) is not None:
+    if word.isnumeric():
+        # if it's a number
         return 'number'
-
     for rule, rule_list in rules.items():
+        # if it match any rule above
         if word in rule_list:
             return rule
-
     return 'error'
-
-def isnum(word):
-    ''' return a int number if is a number, other wise return None '''
-    try:
-        return int(word)
-    except ValueError as er:
-        return None
