@@ -1,8 +1,13 @@
 <h1>Fill Out This Form</h1>
+
 <form method="POST" action="/hello">
-  A Greeting: <input type="text" name="greet"/>
-  <br/>
-  Your Name: <input type="text" name="name" />
-  <br/>
-  <input type="submit"/>
+  <div class="form-group">
+    <label>A Greeting</label>
+    <input type="text" class="form-control" name="greet"/>
+  </div>
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" class="form-control" name="name" />
+  </div>
+  <input class="btn btn-default" type="submit"/>
 </form>

@@ -1,7 +1,7 @@
 import web
 
 urls = (
-    '/hello', 'index'
+    '/hello', 'index'    
     )
 
 app = web.application(urls, globals())

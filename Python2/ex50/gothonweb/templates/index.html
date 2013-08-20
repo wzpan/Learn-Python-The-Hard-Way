@@ -1,8 +1,14 @@
 $def with (greeting)
 
 $if greeting:
-    I just wanted to say <em style="color: green; font-size: 2em;">$greeting</em>.
+    <p>
+        I just wanted to say <em style="color: green; font-size: 2em;">$greeting</em>.
+    </p>
 $else:
-    <em>Hello</em>, world!
-<br/>
-<button type="button" onclick="window.open('/hello')">index</button>
+    <p>
+        <em>Hello</em>, world!
+    </p>
+
+<p>
+<button type="button" class="btn btn-primary" onclick="window.open('/hello')">index</button>
+</p>
