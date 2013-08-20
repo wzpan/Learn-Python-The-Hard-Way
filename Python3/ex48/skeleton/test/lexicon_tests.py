@@ -4,12 +4,12 @@ from ex48 import lexicon
 
 def text_directions():
     assert_equal(lexicon.scan("north"), [('direction', 'north')])
-    result = lexicon.scan("north south east west down up left right back")
+    result = lexicon.scan("north South EAST west dOwn up left right back")
     assert_equal(result, [('direction', 'north'),
-                          ('direction', 'south'),
-                          ('direction', 'eat'),
+                          ('direction', 'South'),
+                          ('direction', 'EAST'),
                           ('direction', 'west'),
-                          ('direction', 'down'),
+                          ('direction', 'dOwn'),
                           ('direction', 'up'),
                           ('direction', 'left'),
                           ('direction', 'right'),
@@ -19,9 +19,9 @@ def text_directions():
 
 def test_verbs():
     assert_equal(lexicon.scan("go"), [('verb', 'go')])
-    result = lexicon.scan("go kill eat stop")
+    result = lexicon.scan("go KILL eat stop")
     assert_equal(result, [('verb', 'go'),
-                          ('verb', 'kill'),
+                          ('verb', 'KILL'),
                           ('verb', 'eat'),
                           ('verb', 'stop')
                           ])
@@ -29,11 +29,11 @@ def test_verbs():
 
 def test_stops():
     assert_equal(lexicon.scan("the"), [('stop', 'the')])
-    result = lexicon.scan("the in of from at it")
+    result = lexicon.scan("the in of FROM at it")
     assert_equal(result, [('stop', 'the'),
                           ('stop', 'in'),
                           ('stop', 'of'),
-                          ('stop', 'from'),
+                          ('stop', 'FROM'),
                           ('stop', 'at'),
                           ('stop', 'it'),
                           ])
@@ -52,8 +52,8 @@ def test_numbers():
 
 def test_errors():
     assert_equal(lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
-    result = lexicon.scan("bear IAS princess")
-    assert_equal(result, [('noun', 'bear'),
+    result = lexicon.scan("Bear IAS princess")
+    assert_equal(result, [('noun', 'Bear'),
                           ('error', 'IAS'),
                           ('noun', 'princess')
                           ])

@@ -5,7 +5,8 @@ def scan(line):
     result = []
     # for each word, send it to the analyzer to analyse
     for word in words:
-        type = analyse(word)
+        # Make sure the scanner handles user input in any capitalization and case.
+        type = analyse(word.lower())
         result.append((type, word))
     return result
 
