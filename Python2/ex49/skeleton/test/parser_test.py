@@ -72,7 +72,7 @@ def test_skip():
 
 def test_parse_verb():
     ''' test parse_verb function '''
-
+    parser = Parser()
     # test good situations
     test_lists_good =  [[('verb', 'go')],
                         [('verb', 'go'), ('stop', 'to'), ('direction', 'east')],
@@ -84,7 +84,7 @@ def test_parse_verb():
     for i in range(len(test_lists_good)):
         test_list = test_lists_good[i]
         expected_list = expected_lists[i]
-        assert_equal(parse_verb(test_list), expected_list)
+        assert_equal(parser.parse_verb(test_list), expected_list)
     
     # test bad situations
     test_lists_bad = [[('direction', 'south')],
@@ -100,13 +100,13 @@ def test_parse_verb():
     for i in range(len(test_lists_bad)):
         test_list = test_lists_bad[i]
         with assert_raises(ParserError) as cm:
-            parse_verb(test_list)
+            parser.parse_verb(test_list)
         assert_equal(str(cm.exception), "Expected a verb next.")
 
 
 def test_parse_object():
     ''' test parse_object function '''
-    
+    parser = Parser()
     # test good situations
     test_lists_good =  [[('direction', 'south')],
                         [('noun', 'door')],
@@ -122,7 +122,7 @@ def test_parse_object():
     for i in range(len(test_lists_good)):
         test_list = test_lists_good[i]
         expected_list = expected_lists[i]
-        assert_equal(parse_object(test_list), expected_list)
+        assert_equal(parser.parse_object(test_list), expected_list)
     
     # test bad situations
     test_lists_bad = [[('verb', 'go')],                      
@@ -134,12 +134,11 @@ def test_parse_object():
     for i in range(len(test_lists_bad)):
         test_list = test_lists_bad[i]
         with assert_raises(ParserError) as cm:
-            parse_object(test_list)
+            parser.parse_object(test_list)
         assert_equal(str(cm.exception), "Expected a noun or direction next.")
 
 
 def test_class_sentence():
-
     # test good situations
     test_lists_good =  [[('noun', 'bear'), ('verb', 'go'), ('direction', 'east')],
                         [('noun', 'princess'), ('verb', 'kill'), ('noun', 'bear')],
@@ -168,7 +167,7 @@ def test_class_sentence():
 
 def test_parse_subject():
     ''' test parse_subject function '''
-    
+    parser = Parser()
     test_lists =  [[('verb', 'eat'), ('noun', 'princess')],
                         [('verb', 'go'), ('stop', 'to'), ('direction', 'east')],
                         [('verb', 'go'), ('stop', 'to'), ('stop', 'the'), ('noun', 'carbinet'), ('noun', 'door')],
@@ -184,7 +183,7 @@ def test_parse_subject():
         test_subject = test_subjects[i]
         test_verb = test_verbs[i]
         test_object = test_objects[i]
-        sentence = parse_subject(test_list, test_subject)
+        sentence = parser.parse_subject(test_list, test_subject)
         assert_equal(sentence.subject, test_subject[1])
         assert_equal(sentence.verb, test_verb)
         assert_equal(sentence.object, test_object)
@@ -192,7 +191,7 @@ def test_parse_subject():
 
 def test_parse_sentence():
     ''' test parse_sentence function '''
-    
+    parser = Parser()
     # test good situations
     test_lists1 =  [
                     [('noun', 'bear'), ('verb', 'go'), ('stop', 'to'), ('stop', 'the'), ('noun', 'door')],
@@ -206,7 +205,7 @@ def test_parse_sentence():
         
     for i in range(len(test_lists1)):
         test_list = test_lists1[i]
-        sentence = parse_sentence(test_list)
+        sentence = parser.parse_sentence(test_list)
         expected_subject = expected_subjects[i]
         expected_verb = expected_verbs[i]
         expected_object = expected_objects[i]
@@ -222,5 +221,5 @@ def test_parse_sentence():
     for i in range(len(test_lists2)):
         test_list = test_lists2[i]
         with assert_raises(ParserError) as cm:
-            sentence = parse_sentence(test_list)
+            sentence = parser.parse_sentence(test_list)
         assert_equal(str(cm.exception), "Must start with subject, object, or verb not: %s" % test_list[0][0])
