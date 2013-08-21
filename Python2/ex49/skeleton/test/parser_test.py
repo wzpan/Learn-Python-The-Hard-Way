@@ -69,6 +69,12 @@ def test_skip():
         skip(test_list, 'stop')
         assert_equal(test_list, expected_list)
 
+    test_list2 = [('error', 'r2d2')]
+    expected_list2 = []
+    skip(test_list2, 'error')
+    assert_equal(test_list2, expected_list2)
+
+
 
 def test_parse_verb():
     ''' test parse_verb function '''
@@ -76,7 +82,7 @@ def test_parse_verb():
     # test good situations
     test_lists_good =  [[('verb', 'go')],
                         [('verb', 'go'), ('stop', 'to'), ('direction', 'east')],
-                        [('stop', 'to'), ('verb', 'eat')]
+                        [('stop', 'to'), ('error', 'r2d2'), ('verb', 'eat')]
                        ] 
     
     expected_lists = [('verb', 'go'), ('verb', 'go'), ('verb', 'eat')]
@@ -99,9 +105,7 @@ def test_parse_verb():
                     ]
     for i in range(len(test_lists_bad)):
         test_list = test_lists_bad[i]
-        with assert_raises(ParserError) as cm:
-            parser.parse_verb(test_list)
-        assert_equal(str(cm.exception), "Expected a verb next.")
+        assert_raises(ParserError, parser.parse_verb, test_list)
 
 
 def test_parse_object():
@@ -133,10 +137,8 @@ def test_parse_object():
                     ]
     for i in range(len(test_lists_bad)):
         test_list = test_lists_bad[i]
-        with assert_raises(ParserError) as cm:
-            parser.parse_object(test_list)
-        assert_equal(str(cm.exception), "Expected a noun or direction next.")
-
+        assert_raises(ParserError, parser.parse_object, test_list)
+        
 
 def test_class_sentence():
     # test good situations
@@ -152,25 +154,23 @@ def test_class_sentence():
         assert_equal(sentence.object, test_list[2][1])
 
     # test bad situations, for more restrict checking
-    # test_lists_bad =  [[('direction', 'south')],
-    #                     [('noun', 'bear'), ('verb', 'go'), ('stop', 'to'), ('stop', 'the'), ('noun', 'door')],
-    #                     [('stop', 'the'), ('noun', 'princess'), ('verb', 'kill'), ('stop', '10'), ('noun', 'bear')],
-    #                     [],                        
-    #                    ] 
+    test_lists_bad =  [[('direction', 'south')],
+                        [('noun', 'bear'), ('verb', 'go'), ('stop', 'to'), ('stop', 'the'), ('noun', 'door')],
+                        [('stop', 'the'), ('noun', 'princess'), ('verb', 'kill'), ('stop', '10'), ('noun', 'bear')],
+                         [],                        
+                        ] 
 
-    # for i in range(len(test_lists_good)):
-    #     test_list = test_lists_bad[i]
-    #     with assert_raises(TypeError) as cm:
-    #         sentence = Sentence(*test_list)
-    #     assert_equal(str(cm.exception), "__init__() takes exactly 4 arguments (%d given)" % (len(test_list) + 1))
-        
+    for i in range(len(test_lists_good)):
+        test_list = test_lists_bad[i]
+        assert_raises(TypeError, Sentence, *test_list)
+
 
 def test_parse_subject():
     ''' test parse_subject function '''
     parser = Parser()
-    test_lists =  [[('verb', 'eat'), ('noun', 'princess')],
+    test_lists =  [[('error', 'r2d2'), ('verb', 'eat'), ('noun', 'princess')],
                         [('verb', 'go'), ('stop', 'to'), ('direction', 'east')],
-                        [('verb', 'go'), ('stop', 'to'), ('stop', 'the'), ('noun', 'carbinet'), ('noun', 'door')],
+                        [('verb', 'go'), ('error', 'r2d2'), ('stop', 'to'), ('stop', 'the'), ('noun', 'carbinet'), ('noun', 'door')],
                         [('verb', 'kill'), ('stop', 'the'), ('noun', 'bear')]
                        ]
 
@@ -216,10 +216,7 @@ def test_parse_sentence():
     # test bad situations
     test_lists2 =  [
                     [('number', '234')],
-                    [('error', 'r2d2')],
                    ]
     for i in range(len(test_lists2)):
         test_list = test_lists2[i]
-        with assert_raises(ParserError) as cm:
-            sentence = parser.parse_sentence(test_list)
-        assert_equal(str(cm.exception), "Must start with subject, object, or verb not: %s" % test_list[0][0])
+        assert_raises(ParserError, parser.parse_object, test_list)

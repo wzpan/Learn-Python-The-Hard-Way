@@ -41,6 +41,9 @@ class Parser(object):
 
     def parse_verb(self, word_list):
         skip(word_list, 'stop')
+        skip(word_list, 'error')
+        skip(word_list, 'stop')
+        skip(word_list, 'error')
 
         if peek(word_list) == 'verb':
             return match(word_list, 'verb')
@@ -50,6 +53,9 @@ class Parser(object):
 
     def parse_object(self, word_list):
         skip(word_list, 'stop')
+        skip(word_list, 'error')
+        skip(word_list, 'stop')
+        skip(word_list, 'error')
         next = peek(word_list)
 
         if next == 'noun':
@@ -69,6 +75,9 @@ class Parser(object):
 
     def parse_sentence(self, word_list):
         skip(word_list, 'stop')
+        skip(word_list, 'error')
+        skip(word_list, 'stop')
+        skip(word_list, 'error')
 
         start = peek(word_list)
 
