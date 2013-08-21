@@ -21,8 +21,8 @@ def peek(word_list):
 
 def match(word_list, expecting):
     if word_list:
+        # notice the pop function here
         word = word_list.pop(0)
-
         if word[0] == expecting:
             return word
         else:
@@ -33,6 +33,7 @@ def match(word_list, expecting):
 
 def skip(word_list, word_type):
     while peek(word_list) == word_type:
+        # remove words that belongs to word_type from word_list
         match(word_list, word_type)
 
 
