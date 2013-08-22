@@ -16,8 +16,9 @@ If you got a better answer, welcome to comment the code and share your version!
 
 1. The final web page game(ex52):
 
-![./media/game.png]
+![](./media/game.png)
 
 2. A little battle system(ex47):
 
-![./media/battle.png]
+![](./media/battle.png)
+
