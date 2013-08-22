@@ -4,14 +4,14 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'description': 'A tiny game',
+    'description': 'A little game',
     'author': 'Joseph Pan',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
     'author_email': 'cs.wzpan@gmail.com',
     'version': '0.1',
     'install_requires': ['nose'],
-    'packages': ['NAME'],
+    'packages': ['ex47'],
     'scripts': [],
     'name': 'projectname'
 }
