@@ -1,3 +1,8 @@
+from random import randint
+
+class RoomError(Exception):
+    pass
+
 class Room(object):
 
     def __init__(self, name, description):
@@ -105,13 +110,14 @@ into jam jelly.
 )
 
 
+
+generic_death = Room("death", "You died")
+
+
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
     })
-
-
-generic_death = Room("death", "You died.")
 
 
 the_bridge.add_paths({

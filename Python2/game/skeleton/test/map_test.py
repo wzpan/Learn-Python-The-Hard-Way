@@ -37,3 +37,8 @@ def test_gothon_game_map():
 
     room = START.go('tell a joke')
     assert_equal(room, laser_weapon_armory)
+
+    dead = Room("death", "Oh you died")
+    assert_equal(dead.name, "death")
+    assert_equal(dead.description, "Oh you died")
+

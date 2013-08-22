@@ -5,7 +5,10 @@ $def with (content)
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="./static/css/bootstrap.css" rel="stylesheet" media="screen">
+    <!--<link href="./static/css/bootstrap.css" rel="stylesheet" media="screen">-->
+    <link href="./static/css/pure-min.css" rel="stylesheet">
+    <link href="./static/css/modal.css" rel="stylesheet">
+    <link href="./static/css/marketing.css" rel="stylesheet">
     <script src="/static/js/validate.js"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -15,41 +18,53 @@ $def with (content)
 
     <title>Gothons From Planet Percal #25</title>
   </head>
-  <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">A Python Site</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+          <a href="/" class="pure-menu-heading">A Python Site</a>
+          <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/hello">Greeting</a></li>
             <li><a href="/image">Image</a></li>
+            <li><a href="/entry">Game</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container">
-    
-      <div class="jumbotron">
-        <div class="container">
-          <h1>A Python Site</h1>
-          <p>Click the navbar to browse my site!</p>          
         </div>
       </div>
 
-      <div align="center">
-        $:content
-      </div>      
+      <div class="splash">
+        <div class="pure-g-r">
+          <div class="pure-u-2-3">
+            <div class="l-box splash-text">
+              <h1 class="splash-head">
+                A Python Site
+              </h1>
+              <h2 class="splash-subhead">
+                Click the navbar to browse my site!
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="content-ribbon">
+          <div class="pure-u-1-5">
+          </div>
+          <div class="pure-u-3-5">
+            $:content
+          </div>
+          <div class="pure-u-1-5">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        &copy; Joseph Pan 2013.
+      </div>
     </div>
 
+    
   </body>
 </html>

@@ -1,13 +1,12 @@
 <h1>Fill Out This Form</h1>
 
 <form method="POST" action="/hello">
-  <div class="form-group">
-    <label>A Greeting</label>
-    <input type="text" class="form-control" name="greet"/>
+  <div class="pure-form">
+    <fieldset>
+      <legend>A Greeting App</legend>
+      <input type="text" placeholder="greeting word" name="greet" />
+      <input type="text" placeholder="your name" name="name" />
+    <input class="pure-button pure-button-primary" type="submit"/>
+    </fieldset>
   </div>
-  <div class="form-group">
-    <label>Your Name</label>
-    <input type="text" class="form-control" name="name" />
-  </div>
-  <input class="btn btn-primary" type="submit"/>
 </form>
