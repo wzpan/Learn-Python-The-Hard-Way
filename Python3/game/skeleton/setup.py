@@ -4,7 +4,7 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'description': 'A little game',
+    'description': 'My Project',
     'author': 'Joseph Pan',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',

@@ -1,0 +1,27 @@
+<h1>Upload An Image</h1>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pure-button-error" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>You haven't choose a file. Please do that so that I can show you the magic!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="pure-button pure-button-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<form method="POST" action="/image" onsubmit="return validate_form(this)" enctype="multipart/form-data">
+  <div class="pure-form">
+    <fieldset>
+      <legend>Select a image and upload.</legend>
+      <input type="file" name="myfile">
+    </fieldset>
+  </div>
+  <input class="pure-button pure-button-primary" type="submit"/>
+</form> 
