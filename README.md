@@ -1,6 +1,6 @@
 My answer for all the excersice from Zed. A. Shaw [Learn Python the Hard Way](http://learnpythonthehardway.org/).
 
-All the code will be written in both Python2(2.7.5) and Python3(3.3.2).
+All the codes are  written in both Python2(2.7.5) and Python3(3.3.2).
 
 The best way to check my solution step by step is to use `git log` command. For instance,
 
