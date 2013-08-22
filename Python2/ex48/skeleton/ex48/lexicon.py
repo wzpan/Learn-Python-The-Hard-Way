@@ -1,5 +1,3 @@
-import inflect
-
 def scan(line):
     ' scan a line and split into words '
     words = line.split(' ')
@@ -7,12 +5,6 @@ def scan(line):
     result = []
     # for each word, send it to the analyzer to analyse
     for word in words:
-        # singular noun
-        p = inflect.engine()
-        # the inflect will singular 'princess' into 'princes' that I don't want   
-        if word != 'princess' and p.singular_noun(word):
-            word = p.singular_noun(word)
-
         # Make sure the scanner handles user input in any capitalization and case.
         type = analyse(word.lower())
         result.append((type, word))
@@ -21,11 +13,10 @@ def scan(line):
 
 def analyse(word):
     ''' Input a word, return its type according to the rule.  '''
-    
     rules = {
         "direction": ['north', 'south', 'east', 'west', 'down', 'up', 'left', 'right', 'back'],
         "verb": ['go', 'stop', 'kill', 'eat'],
-        "stop": ['the', 'in', 'of', 'from', 'at', 'it', 'to'],
+        "stop": ['the', 'in', 'of', 'from', 'at', 'it'],
         "noun": ['door', 'bear', 'princess', 'carbinet']
         }
     

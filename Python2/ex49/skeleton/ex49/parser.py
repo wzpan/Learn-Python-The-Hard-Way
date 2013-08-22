@@ -3,22 +3,13 @@ class ParserError(Exception):
 
 class Sentence(object):
 
-    def __init__(self, *args):
+    def __init__(self, subject, verb, object):
         # remember we take ('noun','princess') tuples and convert them
-        argsnum = len(args)
-        if argsnum == 4:
-            self.subject = args[0][1]
-            self.verb = args[1][1]
-            self.num = int(args[2][1])
-            self.object = args[3][1]
-        elif argsnum == 3:
-            self.subject = args[0][1]
-            self.verb = args[1][1]
-            self.num = 1
-            self.object = args[2][1]
-        else:
-            raise TypeError("__init__() of class Sentence takes 4 or 5 arguments (%d given)" % argsnum )
-    
+        self.subject = subject[1]
+        self.verb = verb[1]
+        self.object = object[1]
+
+
 def peek(word_list):
     
     if word_list:
@@ -50,32 +41,15 @@ class Parser(object):
 
     def parse_verb(self, word_list):
         skip(word_list, 'stop')
-        skip(word_list, 'error')
-        skip(word_list, 'stop')
-        skip(word_list, 'error')
 
         if peek(word_list) == 'verb':
             return match(word_list, 'verb')
         else:
             raise ParserError("Expected a verb next.")
 
-    def parse_num(self, word_list):
-        skip(word_list, 'stop')
-        skip(word_list, 'error')
-        skip(word_list, 'stop')
-        skip(word_list, 'error')
-
-        if peek(word_list) == 'number':
-            return match(word_list, 'number')
-        else:
-            return None
-
 
     def parse_object(self, word_list):
         skip(word_list, 'stop')
-        skip(word_list, 'error')
-        skip(word_list, 'stop')
-        skip(word_list, 'error')
         next = peek(word_list)
 
         if next == 'noun':
@@ -88,19 +62,13 @@ class Parser(object):
 
     def parse_subject(self, word_list, subj):
         verb = self.parse_verb(word_list)
-        num = self.parse_num(word_list) # should be placed before object
         obj = self.parse_object(word_list)
-        if num is not None:
-            return Sentence(subj, verb, num, obj)
-        else:
-            return Sentence(subj, verb, obj)
+
+        return Sentence(subj, verb, obj)
 
 
     def parse_sentence(self, word_list):
         skip(word_list, 'stop')
-        skip(word_list, 'error')
-        skip(word_list, 'stop')
-        skip(word_list, 'error')
 
         start = peek(word_list)
 
