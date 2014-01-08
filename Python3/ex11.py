@@ -15,7 +15,7 @@ weight = input()
 print("So, you're %r old, %r tall and %r heavy." % (age, height, weight))
 
 print("Enter a integer: ", end=" ")
-num = int(raw_input())
+num = int(raw_input())                        # won't work with int(raw_input)), with eval(input()) it would work
 print("The number you've input is: %d" % num)
 
 print("Enter a name: ", end=" ")
