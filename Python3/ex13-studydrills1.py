@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex13: Parameters, Unpacking, Variables
 # Write a script that has fewer arguments

@@ -4,8 +4,10 @@
 
 from sys import argv
 
-script, user_name = argv
-prompt = '> '
+# Add another argument and use it in your script
+script, user_name, city = argv
+# Change the prompt variable to something else
+prompt = 'Please type the answer: '
 
 print("Hi %s from %s, I'm the %s script." % (user_name, city, script))
 print("I'd like to ask you a few questions.")
