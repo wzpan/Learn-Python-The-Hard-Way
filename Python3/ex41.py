@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex41: Learning To Speak Object Oriented
 
@@ -31,12 +31,10 @@ if len(sys.argv) == 2 and sys.argv[1] == "english":
 
 # load up the words from the website
 for word in urlopen(WORD_URL).readlines():
-    WORDS.append(word.strip())
-
+    WORDS.append(word.strip().decode("utf-8"))
 
 def convert(snippet, phrase):
-    class_names = [w.capitalize() for w in
-                   random.sample(WORDS, snippet.count("%%%"))]
+    class_names = [w.capitalize() for w in random.sample(WORDS, snippet.count("%%%"))]
     other_names = random.sample(WORDS, snippet.count("***"))
     results = []
     param_names = []
@@ -63,7 +61,6 @@ def convert(snippet, phrase):
         results.append(result)
 
     return results
-
 
 # keep going until they hit CTRL-D
 try:
