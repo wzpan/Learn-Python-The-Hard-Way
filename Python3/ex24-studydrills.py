@@ -33,9 +33,11 @@ start_point = 1000
 beans, jars, crates = secret_formala(start_point)
 
 print("With a starting point of: %d" % start_point)
+# use the tuple as the parameters for the formatter
 print("We'd have %d beans, %d jars, and %d crates." % (beans, jars, crates))
 
 start_point = start_point / 10
 
 print("We can also do that this way:")
+# call the function and use its return values as the parameters for the formatter
 print("We'd have %d beans, %d jars, and %d crates." % secret_formala(start_point))

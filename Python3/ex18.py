@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex18: Names, Variables, Code, Functions
 
@@ -18,7 +18,6 @@ def print_one(arg1):
 # this one takes no arguments
 def print_none():
     print("I got nothin'.")
-
 
 print_two("Zed","Shaw")
 print_two_again("Zed","Shaw")

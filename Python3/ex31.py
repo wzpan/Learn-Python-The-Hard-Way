@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex31: Making Decisions
 
@@ -18,36 +18,20 @@ if door == "1":
     elif bear == "2":
         print("The bear eats your legs off. Good job!")
     else:
-        print("Well, doing %s is probably better. Bear runs away." % bear)
-
+        print("Well, doing {} is probably better. Bear runs away.".format(bear))
+    
 elif door == "2":
     print("You stare into the endless abyss at Cthulhu's retina.")
     print("1. Blueberries.")
     print("2. Yellow jacket clothespins.")
     print("3. Understanding revolvers yelling melodies.")
-
+    
     insanity = input("> ")
-
+    
     if insanity == "1" or insanity == "2":
-        print("Your body survives powered by a mind of jello. Good job!")
+        print("Your body survives powered by a mind of a jello. good job!")
     else:
-        print("The insanity rots you ")
-
-elif door == "3":
-    print("You are asked to select one pill from two and take it. One is red, and the other is blue.")
-    print("1. take the red one.")
-    print("2. take the blue one.")
-
-    pill = input("> ")
-
-    if pill == "1":
-        print("You wake up and found this is just a ridiculous dream. Good job!")
-    elif pill == "2":
-        print("It's poisonous and you died.")
-    else:
-        print("The man got mad and killed you.")
-
+        print("The insanity roots your eyes into a pool of muck. Good job!")
 
 else:
-    print("You wake up and found this is just a ridiculous dream.")
-    print("However you feel a great pity haven't entered any room and found out what it will happens!")
+    print("You stumble around and fall on a knife and die. Good job!")

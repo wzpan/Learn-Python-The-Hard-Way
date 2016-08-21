@@ -28,3 +28,17 @@ if people <= dogs:
 
 if people == dogs:
     print("People are dogs.")
+
+dogs += 5
+
+if (dogs < cats) and (people < cats):
+    print("Cats are more than people and dogs. People are scared by cats!")    
+
+if (dogs < cats) and not (people < cats):
+    print("Cats are more than dogs. Mice are living a hard life!")
+    
+if (dogs == cats) or (cats < 10):
+    print("Cats are fighting against dogs! Mice are happy!")
+
+if cat != 0: 
+    print("Cats are still exist. Mice cannot be too crazy.")  

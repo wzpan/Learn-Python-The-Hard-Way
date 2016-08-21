@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex32: Loops and Lists
 
@@ -10,11 +10,9 @@ change = [1, 'pennies', 2, 'dimes', 3, 'quarters']
 for number in the_count:
     print("This is count %d" % number)
 
-
 # same as above
 for fruit in fruits:
     print("A fruit of type: %s" % fruit)
-
 
 # also we can go through mixed lists too
 # notice we have to use %r since we don't know what's in it

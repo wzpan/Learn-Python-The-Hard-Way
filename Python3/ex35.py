@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # ex35: Branches and Functions
 
@@ -81,6 +81,5 @@ def start():
         cthulhu_room()
     else:
         dead("You stumble around the room until you starve.")
-
 
 start()

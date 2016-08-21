@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 def break_words(stuff):
     """This function will break up words for us."""

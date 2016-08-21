@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 # A script similar to ex16 that uses read and argv to read the file
 
