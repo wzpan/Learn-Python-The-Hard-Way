@@ -1,4 +1,4 @@
-My answer for all the excersice from Zed. A. Shaw [Learn Python the Hard Way](http://learnpythonthehardway.org/).
+My answer for all the exersice from Zed. A. Shaw [Learn Python the Hard Way](http://learnpythonthehardway.org/).
 
 All the codes are  written in both Python2(2.7.5) and Python3(3.3.2).
 
