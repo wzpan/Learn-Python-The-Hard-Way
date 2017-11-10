@@ -1,4 +1,7 @@
-import web, datetime, os
+import web 
+import datetime
+import os
+
 from bin import map
 
 urls = (
