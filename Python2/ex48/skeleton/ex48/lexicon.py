@@ -1,31 +1,33 @@
-def scan(line):
-    ' scan a line and split into words '
-    words = line.split(' ')
-    # analyse words
-    result = []
-    # for each word, send it to the analyzer to analyse
-    for word in words:
-        # Make sure the scanner handles user input in any capitalization and case.
-        type = analyse(word.lower())
-        result.append((type, word))
-    return result
+class Lexicon(object):
 
+    def convert_number(s):
+        try:
+            return int(s)
+        except ValueError:
+            return None
 
-def analyse(word):
-    ''' Input a word, return its type according to the rule.  '''
-    rules = {
-        "direction": ['north', 'south', 'east', 'west', 'down', 'up', 'left', 'right', 'back'],
-        "verb": ['go', 'stop', 'kill', 'eat'],
-        "stop": ['the', 'in', 'of', 'from', 'at', 'it'],
-        "noun": ['door', 'bear', 'princess', 'carbinet']
-        }
-    
-    ''' analyse a word '''
-    if word.isdigit():
-        # if it's a number
-        return 'number'
-    for rule, rule_list in rules.items():
-        if word in rule_list:
-            # if it match any rule above
-            return rule
-    return 'error'
+    def scan(s):
+        directions = ['north', 'south', 'west', 'east']
+        verbs = ['go', 'kill', 'eat']
+        stops = ['the', 'in', 'of']
+        nouns = ['bear', 'princess']
+
+        result = []
+
+        words = s.lower().split()
+
+        for word in words:
+            if word in directions:
+                result.append(('direction', word))
+            elif word in verbs:
+                result.append(('verb', word))
+            elif word in stops:
+                result.append(('stop', word))
+            elif word in nouns:
+                result.append(('noun', word))
+            elif Lexicon.convert_number(word):
+                result.append(('number', int(word)))
+            else:
+                result.append(('error', word))
+
+        return result
